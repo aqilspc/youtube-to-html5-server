@@ -4,8 +4,8 @@ const url = require('url');
 const NodeCache = require('node-cache');
 const cache = new NodeCache();
 
-const hostname = process?.env?.HOST;
-const port = process?.env?.PORT;
+const hostname = '0.0.0.0';
+const port = 8000;
 
 const successCacheAge = 14400; // 4hrs
 const errorCacheAge = 3600; // 1hrs
@@ -127,5 +127,5 @@ const app = http.createServer(function(request, response) {
 });
 
 app.listen(port, hostname, () => {
-	console.log(`Server running at https://${hostname}:${port}`);
+	console.log(`Server running at http://${hostname}:${port}`);
 });
